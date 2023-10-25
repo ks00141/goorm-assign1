@@ -1,0 +1,20 @@
+version: "3"
+services:
+  server:
+    image: "ks00141/my-first-server"
+    ports:
+      - "8080:8080"
+    environment:
+      - ENV_DB_URL=jdbc:h2:tcp://db:1521/test
+      - ENV_DB_DRIVER_CLASS_NAME=org.h2.Driver
+      - ENV_DB_USERNAME=sa
+    depends_on:
+      - db
+  db:
+    container_name: h2
+    image: "oscarfonts/h2"
+    ports:
+      - "1521:1521"
+      - "81:81"
+    environment:
+      H2_OPTIONS: -ifNotExists

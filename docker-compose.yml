@@ -1,15 +1,23 @@
 version: "3"
 services:
+  # server 서비스
   server:
     image: "ks00141/my-first-server"
+
+    # 8080 포트로 호스트:컨테이너 포트 포워딩
     ports:
       - "8080:8080"
+      
+    # 서버 컨테이너의 환경 변수 설정
     environment:
-      - ENV_DB_URL=jdbc:h2:tcp://db:1521/test
-      - ENV_DB_DRIVER_CLASS_NAME=org.h2.Driver
-      - ENV_DB_USERNAME=sa
+      - ENV_DB_URL=jdbc:h2:tcp://db:1521/test # DB URL
+      - ENV_DB_DRIVER_CLASS_NAME=org.h2.Driver # DB Driver Class
+      - ENV_DB_USERNAME=sa # DB username
+    
+    # db 서비스가 먼저 생성 되어야 진행 되도록 설정하는 옵션
     depends_on:
       - db
+  # db 서비스
   db:
     container_name: h2
     image: "oscarfonts/h2"

@@ -22,8 +22,10 @@
  - ENV_USERNAME : DB user name
  - ENV_PWD : DB user passwd
 
-<p>$\it{\large{\color{#DD6565}주의! 해당\  서버\  어플리케이션은\  JPA \ DDL-AUTO : Create 모드입니다.}}$</p>
+<p>$\it{\large{\color{#DD6565}주의! 해당\  서버\  애플리케이션은\  JPA \ DDL-AUTO : Create 모드입니다.}}$</p>
+
 ---
+
 
 # 궁금한 것
 ## 1. Travis CI를 현업에서도 많이 사용 하는가?
